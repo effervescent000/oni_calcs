@@ -1,0 +1,18 @@
+.calc-wrapper {
+    .form-wrapper {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        .input-wrapper {
+            display: grid;
+            grid-template-columns: 13em 5em;
+        }
+    }
+    .output-container {
+        .output-wrapper {
+            .output {
+                font-size: 1.2em;
+                // color: $primary-accent-color;
+            }
+        }
+    }
+}

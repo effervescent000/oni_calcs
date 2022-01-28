@@ -5,6 +5,7 @@ const OxyCalc = (props) => {
     const [diversLungsDupes, setDiversLungsDupes] = useState(0);
     const [deepDiversLungsDupes, setDeepDiversLungsDupes] = useState(0);
     const [mouthbreatherDupes, setMouthbreatherDupes] = useState(0);
+    const [electrolyzerEfficiency, setElectrolyzerEfficiency] = useState(100);
 
     const [oxygenUsed, setOxygenUsed] = useState(0);
     const [electrolyzersNeeded, setElectrolyzersNeeded] = useState(0);
@@ -17,7 +18,9 @@ const OxyCalc = (props) => {
             deepDiversLungsDupes * 50 +
             mouthbreatherDupes * 200;
         setOxygenUsed(oxygen);
-        setElectrolyzersNeeded(((oxygen - 31.3 * oxyferns) / 888).toPrecision(2));
+        setElectrolyzersNeeded(
+            ((oxygen - 31.3 * oxyferns) / 888 / (electrolyzerEfficiency / 100)).toPrecision(2)
+        );
     };
 
     const handleChange = (event) => {
@@ -31,11 +34,13 @@ const OxyCalc = (props) => {
             setMouthbreatherDupes(event.target.value);
         } else if (event.target.name === "oxyferns") {
             setOxyferns(event.target.value);
+        } else if (event.target.name === "efficiency") {
+            setElectrolyzerEfficiency(event.target.value);
         }
     };
 
     return (
-        <div>
+        <div className="calc-wrapper">
             <div className="form-wrapper">
                 <div className="input-wrapper">
                     <span>Regular dupes</span>
@@ -87,6 +92,16 @@ const OxyCalc = (props) => {
                         onBlur={updateValues}
                     />
                 </div>
+                <div className="input-wrapper">
+                    <span>Electrolyzer Efficiency</span>
+                    <input
+                        type="text"
+                        name="efficiency"
+                        value={electrolyzerEfficiency}
+                        onChange={handleChange}
+                        onBlur={updateValues}
+                    />
+                </div>
             </div>
 
             <div style={{ padding: "1em" }} />
@@ -94,11 +109,21 @@ const OxyCalc = (props) => {
             <div className="output-container">
                 <div className="output-wrapper">
                     <span className="label">Oxygen used: </span>{" "}
-                    <span className="output">{oxygenUsed}g/s</span>
+                    <span
+                        className="output"
+                        style={parseFloat(oxygenUsed) > 0 ? { color: "#afb3f7" } : null}
+                    >
+                        {oxygenUsed}g/s
+                    </span>
                 </div>
                 <div className="output-wrapper">
                     <span className="label">Electrolyzers needed: </span>{" "}
-                    <span className="output">{electrolyzersNeeded}</span>
+                    <span
+                        className="output"
+                        style={parseFloat(electrolyzersNeeded) > 0 ? { color: "#afb3f7" } : null}
+                    >
+                        {electrolyzersNeeded}
+                    </span>
                 </div>
             </div>
         </div>
