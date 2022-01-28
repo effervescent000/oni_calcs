@@ -1,0 +1,19 @@
+#header {
+    background-color: $secondary-bg-color;
+    padding: 1em 3em 0.25em 3em;
+    .navbar {
+        margin-bottom: 1rem;
+        display: flex;
+        gap: 5em;
+        align-items: flex-end;
+    }
+}
+
+.navbar-brand {
+    font-size: 1.5em;
+}
+
+.navbar-nav {
+    display: flex;
+    gap: 1rem;
+}

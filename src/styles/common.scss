@@ -1,0 +1,21 @@
+body {
+    background-color: $primary-bg-color;
+    color: $primary-text-color;
+}
+
+#page-wrapper {
+    margin: 1.5rem 25%;
+    .content-wrapper {
+        margin: 0 2em;
+    }
+}
+
+a {
+    color: $primary-accent-color;
+    text-decoration: underline 0.05em rgba($color: $primary-text-color, $alpha: 0);
+    transition: 0.25s;
+
+    &:hover {
+        text-decoration: underline 0.05em rgba($color: $primary-text-color, $alpha: 1);
+    }
+}
