@@ -10,6 +10,7 @@ const OxyCalc = (props) => {
     const [oxygenUsed, setOxygenUsed] = useState(0);
     const [electrolyzersNeeded, setElectrolyzersNeeded] = useState(0);
     const [oxyferns, setOxyferns] = useState(0);
+    const [waterRequired, setWaterRequired] = useState(0);
 
     const updateValues = () => {
         const oxygen =
@@ -18,9 +19,13 @@ const OxyCalc = (props) => {
             deepDiversLungsDupes * 50 +
             mouthbreatherDupes * 200;
         setOxygenUsed(oxygen);
-        setElectrolyzersNeeded(
-            ((oxygen - 31.3 * oxyferns) / 888 / (electrolyzerEfficiency / 100)).toPrecision(2)
-        );
+        const electrolyzers = (
+            (oxygen - 31.3 * oxyferns) /
+            888 /
+            (electrolyzerEfficiency / 100)
+        ).toPrecision(2);
+        setElectrolyzersNeeded(electrolyzers);
+        setWaterRequired(electrolyzers * 600);
     };
 
     const handleChange = (event) => {
@@ -113,7 +118,7 @@ const OxyCalc = (props) => {
                         className="output"
                         style={parseFloat(oxygenUsed) > 0 ? { color: "#afb3f7" } : null}
                     >
-                        {oxygenUsed}g/s
+                        {oxygenUsed} g/s
                     </span>
                 </div>
                 <div className="output-wrapper">
@@ -123,6 +128,15 @@ const OxyCalc = (props) => {
                         style={parseFloat(electrolyzersNeeded) > 0 ? { color: "#afb3f7" } : null}
                     >
                         {electrolyzersNeeded}
+                    </span>
+                </div>
+                <div className="output-wrapper">
+                    <span className="label">Water required per cycle: </span>{" "}
+                    <span
+                        className="output"
+                        style={parseFloat(waterRequired) > 0 ? { color: "#afb3f7" } : null}
+                    >
+                        {waterRequired} kg
                     </span>
                 </div>
             </div>
