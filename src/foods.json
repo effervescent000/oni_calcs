@@ -1,0 +1,135 @@
+{
+    "barbeque": {
+        "label": "Barbeque",
+        "quality": 3,
+        "kcal": 4000,
+        "ingredients": ["meat"],
+        "url": "https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/f/f5/Resource_Barbeque.png"
+    },
+    "berrySludge": {
+        "label": "Berry Sludge",
+        "quality": 3,
+        "kcal": 4000,
+        "ingredients": ["bristleBerry", "sleetWheatGrain"],
+        "url": "https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/3/30/Resource_Berry_Sludge.png"
+    },
+    "bristleBerry": {
+        "label": "Bristle Berry",
+        "quality": 0,
+        "kcal": 1600,
+        "ingredients": [],
+        "url": "https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/1/11/Resource_Bristle_Berry.png"
+    },
+    "cookedFish": {
+        "label": "Cooked Fish",
+        "quality": 3,
+        "kcal": 1600,
+        "ingredients": ["pacuFillet"],
+        "url": "https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/c/c8/Resource_Cooked_Fish.png"
+    },
+    "friedMushroom": {
+        "label": "Fried Mushroom",
+        "quality": 1,
+        "kcal": 2800,
+        "ingredients": ["mushroom"],
+        "url": "https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/5/56/Resource_Fried_Mushroom.png"
+    },
+    "frostBun": {
+        "label": "Frost Bun",
+        "quality": 2,
+        "kcal": 1200,
+        "ingredients": ["sleetWheatGrain"],
+        "url": "https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/c/cc/Resource_Frost_Bun.png"
+    },
+    "frostBurger": {
+        "label": "Frost Burger",
+        "quality": 6,
+        "kcal": 6000,
+        "ingredients": ["barbeque", "frostBun", "lettuce"],
+        "url": "https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/4/47/Resource_Frost_Burger.png"
+    },
+    "gristleBerry": {
+        "label": "Gristle Berry",
+        "quality": 1,
+        "kcal": 2000,
+        "ingredients": ["bristleBerry"],
+        "url": "https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/c/cd/Resource_Gristle_Berry.png"
+    },
+    "lettuce": {
+        "label": "Lettuce",
+        "quality": 0,
+        "kcal": 400,
+        "ingredients": [],
+        "url": "https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/f/fe/Resource_Lettuce.png"
+    },
+    "liceloaf": {
+        "label": "Liceloaf",
+        "quality": 0,
+        "kcal": 1700,
+        "ingredients": ["mealLice"],
+        "url": "https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/5/5f/Resource_Liceloaf.png"
+    },
+    "mealLice": {
+        "label": "Meal Lice",
+        "quality": -1,
+        "kcal": 600,
+        "ingredients": [],
+        "url": "https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/f/f6/Resource_Meal_Lice.png"
+    },
+    "meat": {
+        "label": "Meat",
+        "quality": -1,
+        "kcal": 1600,
+        "ingredients": [],
+        "url": "https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/b/b6/Resource_Meat.png"
+    },
+    "mushBar": {
+        "label": "Mush Bar",
+        "quality": -1,
+        "kcal": 800,
+        "ingredients": [],
+        "url": "https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/b/ba/Resource_Mush_Bar.png"
+    },
+    "mushFry": {
+        "label": "Mush Fry",
+        "quality": 0,
+        "kcal": 1050,
+        "ingredients": ["mushBar"],
+        "url": "https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/c/c0/Resource_Mush_Fry.png"
+    },
+    "mushroom": {
+        "label": "Mushroom",
+        "quality": 0,
+        "kcal": 2400,
+        "ingredients": [],
+        "url": "https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/6/66/Resource_Mushroom.png"
+    },
+    "mushroomWrap": {
+        "label": "Mushroom Wrap",
+        "quality": 4,
+        "kcal": 4800,
+        "ingredients": ["mushroom", "lettuce"],
+        "url": "https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/e/ea/Resource_Mushroom_Wrap.png"
+    },
+    "noshBean": {
+        "label": "Nosh Bean",
+        "quality": 3,
+        "kcal": 0,
+        "ingredients": [],
+        "url": "https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/d/d2/Nosh_Bean.png"
+    },
+    "omelette": {
+        "label": "Omelette",
+        "quality": 2,
+        "kcal": 2800,
+        "ingredients": ["rawEgg"],
+        "url": "https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/3/32/Resource_Omelette.png"
+    },
+    "pacuFillet": {
+        "label": "Pacu Fillet",
+        "quality": 2,
+        "kcal": 1000,
+        "ingredients": [],
+        "url": "https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/0/0b/Resource_Pacu_Fillet.png"
+    }
+}
