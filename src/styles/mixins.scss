@@ -1,0 +1,10 @@
+@mixin link-styling {
+    color: $primary-accent-color;
+    text-decoration: underline 0.05em rgba($color: $primary-text-color, $alpha: 0);
+    transition: 0.25s;
+    @content;
+
+    &:hover {
+        text-decoration: underline 0.05em rgba($color: $primary-text-color, $alpha: 1);
+    }
+}

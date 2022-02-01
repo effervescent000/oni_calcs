@@ -1,4 +1,5 @@
 // import logo from "./logo.svg";
+import "bootstrap/scss/bootstrap.scss";
 import "./styles/main.scss";
 
 import React from "react";
@@ -7,7 +8,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Header from "./components/header";
 import MainPage from "./components/main-page";
 import OxyCalc from "./components/oxy-calc";
-import FoodCalc from "./components/food-calc/food-calc";
+import FoodCalcPage from "./components/food-calc/food-calc-page";
 
 function App() {
     return (
@@ -24,7 +25,7 @@ function App() {
                                 <OxyCalc />
                             </Route>
                             <Route path="/calcs/food">
-                                <FoodCalc />
+                                <FoodCalcPage />
                             </Route>
                         </Switch>
                     </div>
