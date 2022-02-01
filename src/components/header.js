@@ -11,7 +11,8 @@ const Header = (props) => {
                 <Container>
                     <Navbar.Collapse>
                         <Nav>
-                            <Nav.Link href="/oxygencalc">Oxygen Calc</Nav.Link>
+                            <Nav.Link href="/calcs/oxygen">Oxygen Calc</Nav.Link>
+                            <Nav.Link href="/calcs/food">Food Calc</Nav.Link>
                         </Nav>
                     </Navbar.Collapse>
                 </Container>

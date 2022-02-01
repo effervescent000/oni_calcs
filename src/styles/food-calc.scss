@@ -1,0 +1,8 @@
+.food-wrapper {
+    display: flex;
+    flex-flow: wrap;
+    align-items: flex-end;
+    .food-img img {
+        max-width: 4em;
+    }
+}

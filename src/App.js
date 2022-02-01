@@ -7,6 +7,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Header from "./components/header";
 import MainPage from "./components/main-page";
 import OxyCalc from "./components/oxy-calc";
+import FoodCalc from "./components/food-calc/food-calc";
 
 function App() {
     return (
@@ -19,8 +20,11 @@ function App() {
                             <Route exact path="/">
                                 <MainPage />
                             </Route>
-                            <Route path="/oxygencalc">
+                            <Route path="/calcs/oxygen">
                                 <OxyCalc />
+                            </Route>
+                            <Route path="/calcs/food">
+                                <FoodCalc />
                             </Route>
                         </Switch>
                     </div>
