@@ -9,6 +9,7 @@ import Header from "./components/header";
 import MainPage from "./components/main-page";
 import OxyCalc from "./components/oxy-calc";
 import FoodCalcPage from "./components/food-calc/food-calc-page";
+import PlannerPage from "./components/planner/planner-page";
 
 function App() {
     return (
@@ -26,6 +27,9 @@ function App() {
                             </Route>
                             <Route path="/calcs/food">
                                 <FoodCalcPage />
+                            </Route>
+                            <Route path="/planner">
+                                <PlannerPage />
                             </Route>
                         </Switch>
                     </div>

@@ -1,8 +1,6 @@
 import React from "react";
 import sortArray from "sort-array";
 
-// import * as foodsJson from "../../foods.json";
-
 const FoodListings = (props) => {
     const foods = require("../../foods.json");
     const renderFood = () => {
@@ -36,7 +34,11 @@ const FoodListings = (props) => {
         return foodArray.map((food) => {
             for (const value of Object.values(food)) {
                 return (
-                    <div key={value.label} className="food-img">
+                    <div
+                        key={value.label}
+                        className="food-img"
+                        onClick={() => props.setSelectedFood(value)}
+                    >
                         <img src={value.url} alt={value.label} />
                     </div>
                 );
