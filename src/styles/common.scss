@@ -13,3 +13,9 @@ body {
 a {
     @include link-styling();
 }
+
+.link-button {
+    @include link-styling;
+    background-color: transparent;
+    border: none;
+}
