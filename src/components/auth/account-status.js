@@ -1,13 +1,15 @@
 import React, { useContext, useState } from "react";
 import { UserContext } from "../../user-context";
-import LoginModal from "./login-modal";
 
 import SignupModal from "./signup-modal";
+import LoginModal from "./login-modal";
+import ProfilesModal from "./profiles-modal";
 
 const AccountStatus = (props) => {
     const { loggedIn, user } = useContext(UserContext);
     const [signupModal, setSignupModal] = useState(false);
     const [loginModal, setLoginModal] = useState(false);
+    const [profilesModal, setProfilesModal] = useState(false);
 
     const toggleSignupModal = () => {
         setSignupModal(!signupModal);
@@ -17,11 +19,19 @@ const AccountStatus = (props) => {
         setLoginModal(!loginModal);
     };
 
+    const toggleProfilesModal = () => {
+        setProfilesModal(!profilesModal);
+    };
+
     const renderContent = () => {
         if (loggedIn) {
             return (
                 <div className="account-status">
-                    <span className="greeting">Hi, {user.name}!</span>
+                    <span className="greeting">Hi, {user.username}!</span>
+                    <button className="link-button" onClick={toggleProfilesModal}>
+                        Manage profiles
+                    </button>
+                    <ProfilesModal isOpen={profilesModal} toggle={toggleProfilesModal} />
                     <button className="link-button">Logout</button>
                 </div>
             );
