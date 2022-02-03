@@ -1,12 +1,15 @@
 import React from "react";
 
+import WorldPanel from "./world-panel";
+
 const PlannerFrame = (props) => {
-    return (
-        <div>
-            {/* nothing here */}
-            {/* nothing here */}
-        </div>
-    );
+    const populateData = () => {
+        return props.worlds.map((world) => {
+            return <WorldPanel key={world.id} world={world} />;
+        });
+    };
+
+    return <div className="worlds-wrapper">{populateData()}</div>;
 };
 
 export default PlannerFrame;
