@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import axios from "axios";
+import Cookies from "js-cookie";
 import { Formik, Form } from "formik";
 import { Modal, ModalBody } from "reactstrap";
 import * as Yup from "yup";
@@ -9,7 +10,7 @@ import PasswordInput from "../form-components/password-input";
 import { UserContext } from "../../user-context";
 
 const SignupModal = (props) => {
-    const { setUser, setProfile } = useContext(UserContext);
+    const { setUser, setProfile, toggleLogIn } = useContext(UserContext);
 
     return (
         <Modal isOpen={props.isOpen} toggle={props.toggle}>
@@ -18,9 +19,13 @@ const SignupModal = (props) => {
                     initialValues={{ username: "", password: "", confirmPassword: "" }}
                     onSubmit={(values) => {
                         axios
-                            .post(`${process.env.REACT_APP_DOMAIN}/auth/signup`, values)
+                            .post(`${process.env.REACT_APP_DOMAIN}/auth/signup`, values, {
+                                withCredentials: true,
+                                headers: { "X-CSRF-TOKEN": Cookies.get("csrf_access_token") },
+                            })
                             .then((response) => {
-                                console.log(response);
+                                toggleLogIn();
+                                setUser(response.data);
                             })
                             .catch((error) => console.log(error.response));
                     }}
