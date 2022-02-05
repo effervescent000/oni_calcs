@@ -24,6 +24,11 @@
 }
 
 .dupe-card-wrapper {
+    .dupe-image {
+        img {
+            height: 100px;
+        }
+    }
     .text-wrapper {
         .buttons {
             display: flex;

@@ -1,15 +1,29 @@
 import React, { useContext } from "react";
+import axios from "axios";
+import Cookies from "js-cookie";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrashAlt, faEdit } from "@fortawesome/free-solid-svg-icons";
 
 import DupeContext from "../../context/dupe-context";
 
 const DupeCard = (props) => {
-    const { toggleDupeModal, setDupeToEdit } = useContext(DupeContext);
+    const { toggleDupeModal, setDupeToEdit, getDupes } = useContext(DupeContext);
 
     const editDupe = () => {
         setDupeToEdit(props.dupe);
         toggleDupeModal();
+    };
+
+    const deleteDupe = () => {
+        axios
+            .delete(`${process.env.REACT_APP_DOMAIN}/dupe/delete/${props.dupe.id}`, {
+                withCredentials: true,
+                headers: { "X-CSRF-TOKEN": Cookies.get("csrf_access_token") },
+            })
+            .then((response) => {
+                getDupes();
+            })
+            .catch((error) => console.log(error.response));
     };
 
     return (
@@ -26,7 +40,7 @@ const DupeCard = (props) => {
                     <button className="link-button" onClick={editDupe}>
                         <FontAwesomeIcon icon={faEdit} />
                     </button>
-                    <button className="link-button">
+                    <button className="link-button" onClick={deleteDupe}>
                         <FontAwesomeIcon icon={faTrashAlt} />
                     </button>
                 </div>
