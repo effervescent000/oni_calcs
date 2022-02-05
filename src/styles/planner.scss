@@ -22,3 +22,12 @@
 .input-group-wrapper {
     display: flex;
 }
+
+.dupe-card-wrapper {
+    .text-wrapper {
+        .buttons {
+            display: flex;
+            justify-content: space-between;
+        }
+    }
+}

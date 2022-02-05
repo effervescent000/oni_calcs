@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { UserContext } from "../../user-context";
+import { UserContext } from "../../context/user-context";
 
 import SignupModal from "./signup-modal";
 import LoginModal from "./login-modal";

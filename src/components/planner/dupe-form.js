@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useContext } from "react";
 import axios from "axios";
 import Cookies from "js-cookie";
 import { Formik, Form, FieldArray } from "formik";
@@ -10,15 +10,30 @@ import Checkbox from "../form-components/checkbox";
 import SelectField from "../form-components/select-field";
 
 import dupeOptions from "./helpers/dupe-options";
+import DupeContext from "../../context/dupe-context";
 
 const DupeForm = (props) => {
     const { dupe } = props;
+    const { getDupes } = useContext(DupeContext);
     const skillWrapperName = "skill-input-wrapper";
     const skillPointCheckbox = "skill-checkbox";
 
     const handleSubmit = (values) => {
         if (Object.keys(dupe).length > 0) {
-            // send to the put endpoint
+            axios
+                .put(
+                    `${process.env.REACT_APP_DOMAIN}/dupe/update`,
+                    { id: dupe.id, ...values },
+                    {
+                        withCredentials: true,
+                        headers: { "X-CSRF-TOKEN": Cookies.get("csrf_access_token") },
+                    }
+                )
+                .then((response) => {
+                    console.log(response);
+                    getDupes();
+                })
+                .catch((error) => console.log(error.response));
         } else {
             axios
                 .post(`${process.env.REACT_APP_DOMAIN}/dupe/add`, values, {
@@ -26,7 +41,7 @@ const DupeForm = (props) => {
                     headers: { "X-CSRF-TOKEN": Cookies.get("csrf_access_token") },
                 })
                 .then((response) => {
-                    props.getDupes();
+                    getDupes();
                 })
                 .catch((error) => console.log(error.response));
         }

@@ -11,7 +11,7 @@ const DupeModal = (props) => {
     return (
         <Modal isOpen={props.isOpen} toggle={props.toggle}>
             <ModalBody>
-                <DupeForm dupe={props.dupe} getDupes={props.getDupes} />
+                <DupeForm dupe={props.dupe} />
             </ModalBody>
         </Modal>
     );

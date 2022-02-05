@@ -12,7 +12,7 @@ import MainPage from "./components/main-page";
 import OxyCalc from "./components/oxy-calc";
 import FoodCalcPage from "./components/food-calc/food-calc-page";
 import PlannerPage from "./components/planner/planner-page";
-import { UserContext } from "./user-context";
+import { UserContext } from "./context/user-context";
 
 function App() {
     const [loggedIn, setLoggedIn] = useState(false);

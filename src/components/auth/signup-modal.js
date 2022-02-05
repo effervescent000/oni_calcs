@@ -7,7 +7,7 @@ import * as Yup from "yup";
 
 import TextInput from "../form-components/text-input";
 import PasswordInput from "../form-components/password-input";
-import { UserContext } from "../../user-context";
+import { UserContext } from "../../context/user-context";
 
 const SignupModal = (props) => {
     const { setUser, setProfile, toggleLogIn } = useContext(UserContext);

@@ -1,12 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import Cookies from "js-cookie";
 import { isEqual } from "lodash";
 
 import PlannerFrame from "./planner-frame";
 import DupeModal from "./dupe-modal";
+import DupeContext from "../../context/dupe-context";
 
 const PlannerPage = (props) => {
+    const [dupeToEdit, setDupeToEdit] = useState({});
     const [dupes, setDupes] = useState([]);
     const [dupeModalIsOpen, setDupeModalIsOpen] = useState(false);
     const [worlds, setWorlds] = useState([]);
@@ -14,7 +16,7 @@ const PlannerPage = (props) => {
     useEffect(() => {
         getWorlds();
         getDupes();
-    }, [dupes, worlds]);
+    });
 
     const getDupes = () => {
         axios
@@ -66,18 +68,21 @@ const PlannerPage = (props) => {
 
     return (
         <div id="planner-wrapper">
-            <div className="interaction-wrapper">
-                <button onClick={toggleDupeModal}>New dupe</button>
-                <DupeModal
-                    isOpen={dupeModalIsOpen}
-                    toggle={toggleDupeModal}
-                    dupe={{}}
-                    getDupes={getDupes}
-                />
-                <button onClick={addWorld}>New world</button>
-            </div>
+            <DupeContext.Provider
+                value={{ dupeModalIsOpen, toggleDupeModal, dupeToEdit, setDupeToEdit, getDupes }}
+            >
+                <div className="interaction-wrapper">
+                    <button onClick={toggleDupeModal}>New dupe</button>
+                    <DupeModal
+                        isOpen={dupeModalIsOpen}
+                        toggle={toggleDupeModal}
+                        dupe={dupeToEdit}
+                    />
+                    <button onClick={addWorld}>New world</button>
+                </div>
 
-            <PlannerFrame dupes={dupes} worlds={worlds} getDupes={getDupes} />
+                <PlannerFrame dupes={dupes} worlds={worlds} />
+            </DupeContext.Provider>
         </div>
     );
 };

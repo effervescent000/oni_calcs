@@ -5,7 +5,7 @@ import { Formik, Form } from "formik";
 import { Modal, ModalBody } from "reactstrap";
 import * as Yup from "yup";
 
-import { UserContext } from "../../user-context";
+import { UserContext } from "../../context/user-context";
 
 const ProfilesModal = (props) => {
     const { setProfile } = useContext(UserContext);
