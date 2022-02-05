@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import Cookies from "js-cookie";
-import { Droppable } from "react-beautiful-dnd";
+import { Droppable, Draggable } from "react-beautiful-dnd";
 
 import DupeCard from "./dupe-card";
 
@@ -34,11 +34,19 @@ const WorldPanel = (props) => {
     };
 
     const renderDupes = () => {
-        return dupes.map((dupe) => {
+        return dupes.map((dupe, index) => {
             return (
-                <li key={dupe.id}>
-                    <DupeCard dupe={dupe} />
-                </li>
+                <Draggable key={dupe.id} draggableId={`${dupe.id}`} index={index}>
+                    {(provided) => (
+                        <li
+                            ref={provided.innerRef}
+                            {...provided.draggableProps}
+                            {...provided.dragHandleProps}
+                        >
+                            <DupeCard dupe={dupe} />
+                        </li>
+                    )}
+                </Draggable>
             );
         });
     };
