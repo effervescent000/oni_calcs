@@ -3,8 +3,11 @@ import axios from "axios";
 import Cookies from "js-cookie";
 import { Droppable } from "react-beautiful-dnd";
 
+import DupeCard from "./dupe-card";
+
 const WorldPanel = (props) => {
     const [worldName, setworldName] = useState(props.world.name);
+    const dupes = props.dupes.filter((dupe) => dupe.world_id === props.world.id);
 
     const handleChange = (event) => {
         if (event.target.name === "world-name-input") {
@@ -30,6 +33,16 @@ const WorldPanel = (props) => {
         }
     };
 
+    const renderDupes = () => {
+        return dupes.map((dupe) => {
+            return (
+                <li key={dupe.id}>
+                    <DupeCard dupe={dupe} />
+                </li>
+            );
+        });
+    };
+
     return (
         <div className="world-wrapper">
             <Droppable droppableId={`${props.world.id}`}>
@@ -46,6 +59,7 @@ const WorldPanel = (props) => {
                             onChange={handleChange}
                             onBlur={handleBlur}
                         />
+                        {renderDupes()}
                         {provided.placeholder}
                     </ul>
                 )}
