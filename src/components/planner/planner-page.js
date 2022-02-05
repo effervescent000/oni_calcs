@@ -3,16 +3,20 @@ import axios from "axios";
 import Cookies from "js-cookie";
 
 import PlannerFrame from "./planner-frame";
+import DupeModal from "./dupe-modal";
 
 const PlannerPage = (props) => {
     const [dupes, setDupes] = useState([]);
+    const [dupeModalIsOpen, setDupeModalIsOpen] = useState(false);
     const [worlds, setWorlds] = useState([]);
 
     useEffect(() => {
         getWorlds();
     }, []);
 
-    const addDupe = () => {};
+    const toggleDupeModal = () => {
+        setDupeModalIsOpen(!dupeModalIsOpen);
+    };
 
     const addWorld = () => {
         axios
@@ -45,7 +49,8 @@ const PlannerPage = (props) => {
     return (
         <div id="planner-wrapper">
             <div className="interaction-wrapper">
-                <button onClick={addDupe}>New dupe</button>
+                <button onClick={toggleDupeModal}>New dupe</button>
+                <DupeModal isOpen={dupeModalIsOpen} toggle={toggleDupeModal} dupe={{}} />
                 <button onClick={addWorld}>New world</button>
             </div>
 
