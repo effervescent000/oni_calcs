@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import Cookies from "js-cookie";
+import { Droppable } from "react-beautiful-dnd";
 
 const WorldPanel = (props) => {
     const [worldName, setworldName] = useState(props.world.name);
@@ -31,13 +32,24 @@ const WorldPanel = (props) => {
 
     return (
         <div className="world-wrapper">
-            <input
-                type="text"
-                value={worldName}
-                name="world-name-input"
-                onChange={handleChange}
-                onBlur={handleBlur}
-            />
+            <Droppable droppableId={`${props.world.id}`}>
+                {(provided) => (
+                    <ul
+                        className="dupes-wrapper"
+                        {...provided.droppableProps}
+                        ref={provided.innerRef}
+                    >
+                        <input
+                            type="text"
+                            value={worldName}
+                            name="world-name-input"
+                            onChange={handleChange}
+                            onBlur={handleBlur}
+                        />
+                        {provided.placeholder}
+                    </ul>
+                )}
+            </Droppable>
         </div>
     );
 };
