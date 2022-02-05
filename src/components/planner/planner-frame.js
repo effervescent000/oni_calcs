@@ -27,11 +27,7 @@ const PlannerFrame = (props) => {
 
     const populateWorlds = () => {
         return props.worlds.map((world) => {
-            return (
-                <li key={world.id}>
-                    <WorldPanel world={world} dupes={props.dupes} />
-                </li>
-            );
+            return <WorldPanel world={world} dupes={props.dupes} />;
         });
     };
 
@@ -45,8 +41,10 @@ const PlannerFrame = (props) => {
                         ref={provided.innerRef}
                     >
                         <span>Unassigned dupes</span>
-                        {populateUnassignedDupes()}
-                        {provided.placeholder}
+                        <div className="list-items">
+                            {populateUnassignedDupes()}
+                            {provided.placeholder}
+                        </div>
                     </ul>
                 )}
             </Droppable>

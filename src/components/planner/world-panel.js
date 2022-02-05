@@ -59,8 +59,10 @@ const WorldPanel = (props) => {
                             onChange={handleChange}
                             onBlur={handleBlur}
                         />
-                        {renderDupes()}
-                        {provided.placeholder}
+                        <div className="list-items">
+                            {renderDupes()}
+                            {provided.placeholder}
+                        </div>
                     </ul>
                 )}
             </Droppable>
