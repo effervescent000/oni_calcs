@@ -1,10 +1,14 @@
 #planner-wrapper {
-    .worlds-wrapper {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        .world-wrapper {
-            border: red 1px solid;
-            min-height: 50px;
+    .planner-frame {
+        display: flex;
+        flex-direction: column;
+        .worlds-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            .world-wrapper {
+                border: red 1px solid;
+                min-height: 50px;
+            }
         }
     }
 }

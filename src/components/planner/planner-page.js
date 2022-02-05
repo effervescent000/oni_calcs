@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Cookies from "js-cookie";
+import { isEqual } from "lodash";
 
 import PlannerFrame from "./planner-frame";
 import DupeModal from "./dupe-modal";
@@ -13,7 +14,7 @@ const PlannerPage = (props) => {
     useEffect(() => {
         getWorlds();
         getDupes();
-    }, []);
+    }, [dupes, worlds]);
 
     const getDupes = () => {
         axios
@@ -22,8 +23,9 @@ const PlannerPage = (props) => {
                 headers: { "X-CSRF-TOKEN": Cookies.get("csrf_access_token") },
             })
             .then((response) => {
-                console.log(response.data);
-                setDupes(response.data);
+                if (!isEqual(dupes, response.data)) {
+                    setDupes(response.data);
+                }
             })
             .catch((error) => console.log(error.response));
     };
@@ -55,7 +57,9 @@ const PlannerPage = (props) => {
                 headers: { "X-CSRF-TOKEN": Cookies.get("csrf_access_token") },
             })
             .then((response) => {
-                setWorlds(response.data);
+                if (!isEqual(response.data, worlds)) {
+                    setWorlds(response.data);
+                }
             })
             .catch((error) => console.log(error.response));
     };
@@ -64,11 +68,16 @@ const PlannerPage = (props) => {
         <div id="planner-wrapper">
             <div className="interaction-wrapper">
                 <button onClick={toggleDupeModal}>New dupe</button>
-                <DupeModal isOpen={dupeModalIsOpen} toggle={toggleDupeModal} dupe={{}} />
+                <DupeModal
+                    isOpen={dupeModalIsOpen}
+                    toggle={toggleDupeModal}
+                    dupe={{}}
+                    getDupes={getDupes}
+                />
                 <button onClick={addWorld}>New world</button>
             </div>
 
-            <PlannerFrame dupes={dupes} worlds={worlds} />
+            <PlannerFrame dupes={dupes} worlds={worlds} getDupes={getDupes} />
         </div>
     );
 };

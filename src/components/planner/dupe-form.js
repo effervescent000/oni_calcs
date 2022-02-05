@@ -7,6 +7,9 @@ import * as Yup from "yup";
 import NumberInput from "../form-components/number-input";
 import TextInput from "../form-components/text-input";
 import Checkbox from "../form-components/checkbox";
+import SelectField from "../form-components/select-field";
+
+import dupeOptions from "./helpers/dupe-options";
 
 const DupeForm = (props) => {
     const { dupe } = props;
@@ -23,7 +26,7 @@ const DupeForm = (props) => {
                     headers: { "X-CSRF-TOKEN": Cookies.get("csrf_access_token") },
                 })
                 .then((response) => {
-                    console.log(response);
+                    props.getDupes();
                 })
                 .catch((error) => console.log(error.response));
         }
@@ -34,6 +37,7 @@ const DupeForm = (props) => {
             <Formik
                 initialValues={{
                     name: dupe ? dupe.name : "",
+                    type: dupe ? dupe.type : "",
                     agriculture: dupe ? dupe.agriculture_skill : "",
                     athletics: dupe ? dupe.athletics_skill : "",
                     construction: dupe ? dupe.construction_skill : "",
@@ -63,6 +67,11 @@ const DupeForm = (props) => {
                 <Form>
                     <div className="input-group-wrapper">
                         <TextInput label="Name" name="name" />
+                    </div>
+                    <div className="input-group-wrapper">
+                        <SelectField label="Dupe type" name="type">
+                            {dupeOptions()}
+                        </SelectField>
                     </div>
                     <div className="input-group-wrapper">
                         <NumberInput

@@ -19,9 +19,10 @@ const PlannerFrame = (props) => {
     };
 
     return (
-        <div className="worlds-wrapper">
+        <div className="planner-frame">
+            <span>Unassigned dupes</span>
             {populateUnassignedDupes()}
-            {populateWorlds()}
+            <div className="worlds-wrapper">{populateWorlds()}</div>
         </div>
     );
 };
