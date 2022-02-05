@@ -37,7 +37,7 @@ const DupeForm = (props) => {
             <Formik
                 initialValues={{
                     name: dupe ? dupe.name : "",
-                    type: dupe ? dupe.type : "",
+                    type: dupe ? dupe.type : "Abe",
                     agriculture: dupe ? dupe.agriculture_skill : "",
                     athletics: dupe ? dupe.athletics_skill : "",
                     construction: dupe ? dupe.construction_skill : "",

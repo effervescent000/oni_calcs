@@ -2,6 +2,12 @@
     .planner-frame {
         display: flex;
         flex-direction: column;
+        .dupes-wrapper {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            justify-items: center;
+            text-align: center;
+        }
         .worlds-wrapper {
             display: grid;
             grid-template-columns: 1fr 1fr;
