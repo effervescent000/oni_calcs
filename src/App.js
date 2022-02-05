@@ -27,7 +27,7 @@ function App() {
                     headers: { "X-CSRF-TOKEN": Cookies.get("csrf_access_token") },
                 })
                 .then((response) => {
-                    console.log(response);
+                    // console.log(response);
                     if (Object.keys(response.data).length > 0) {
                         toggleLogIn();
                         setUser(response.data);

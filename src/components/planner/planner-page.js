@@ -12,7 +12,21 @@ const PlannerPage = (props) => {
 
     useEffect(() => {
         getWorlds();
+        getDupes();
     }, []);
+
+    const getDupes = () => {
+        axios
+            .get(`${process.env.REACT_APP_DOMAIN}/dupe/get`, {
+                withCredentials: true,
+                headers: { "X-CSRF-TOKEN": Cookies.get("csrf_access_token") },
+            })
+            .then((response) => {
+                console.log(response.data);
+                setDupes(response.data);
+            })
+            .catch((error) => console.log(error.response));
+    };
 
     const toggleDupeModal = () => {
         setDupeModalIsOpen(!dupeModalIsOpen);
