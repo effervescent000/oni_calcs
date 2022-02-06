@@ -7,18 +7,14 @@ const NumberInput = ({ label, ...props }) => {
 
     return (
         <div className={props.divclass}>
-            <div className="label-wrapper">
-                <label htmlFor={props.id || props.name}>{label}</label>
-            </div>
-            <div className="input-wrapper">
-                <input
-                    className={`text-input${meta.error && meta.touched ? " error" : ""}`}
-                    id={props.name}
-                    type="text"
-                    {...field}
-                    {...props}
-                />
-            </div>
+            <label htmlFor={props.id || props.name}>{label}</label>
+            <input
+                className={`text-input${meta.error && meta.touched ? " error" : ""}`}
+                id={props.name}
+                type="text"
+                {...field}
+                {...props}
+            />
 
             {meta.touched && meta.error ? (
                 <div className="error-msg">

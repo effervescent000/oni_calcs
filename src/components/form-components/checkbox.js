@@ -5,7 +5,7 @@ const Checkbox = ({ children, ...props }) => {
     const [field, meta] = useField({ ...props, type: "checkbox" });
 
     return (
-        <div>
+        <div className={props.divclass}>
             <label className="checkbox-input">
                 {props.label}
                 <input type="checkbox" {...field} {...props} />

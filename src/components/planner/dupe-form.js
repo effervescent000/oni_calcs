@@ -48,7 +48,7 @@ const DupeForm = (props) => {
     };
 
     return (
-        <div>
+        <div className="dupe-form-wrapper">
             <Formik
                 initialValues={{
                     name: dupe ? dupe.name : "",
@@ -81,7 +81,7 @@ const DupeForm = (props) => {
             >
                 <Form>
                     <div className="input-group-wrapper">
-                        <TextInput label="Name" name="name" />
+                        <TextInput label="Name" name="name" divclass="input-wrapper" />
                     </div>
                     <div className="input-group-wrapper">
                         <SelectField label="Dupe type" name="type">
@@ -94,16 +94,18 @@ const DupeForm = (props) => {
                             name="agriculture"
                             divclass={skillWrapperName}
                         />
-                        <Checkbox
-                            label="Crop Tending?"
-                            name="cropTending"
-                            divclass={skillPointCheckbox}
-                        />
-                        <Checkbox
-                            label="Critter ranching?"
-                            name="critterRanching"
-                            divclass={skillPointCheckbox}
-                        />
+                        <div className="checkboxes-wrapper">
+                            <Checkbox
+                                label="Crop Tending?"
+                                name="cropTending"
+                                divclass={skillPointCheckbox}
+                            />
+                            <Checkbox
+                                label="Critter ranching?"
+                                name="critterRanching"
+                                divclass={skillPointCheckbox}
+                            />
+                        </div>
                     </div>
                     <div className="input-group-wrapper">
                         <NumberInput
@@ -129,7 +131,13 @@ const DupeForm = (props) => {
                     </div>
                     <div className="input-group-wrapper">
                         <NumberInput label="Cuisine" name="cuisine" divclass={skillWrapperName} />
-                        <Checkbox label="Grilling?" name="grilling" divclass={skillPointCheckbox} />
+                        <div className="checkboxes-wrapper">
+                            <Checkbox
+                                label="Grilling?"
+                                name="grilling"
+                                divclass={skillPointCheckbox}
+                            />
+                        </div>
                     </div>
                     <div className="input-group-wrapper">
                         <NumberInput
@@ -163,31 +171,33 @@ const DupeForm = (props) => {
                     </div>
                     <div className="input-group-wrapper">
                         <NumberInput label="Science" name="science" divclass={skillWrapperName} />
-                        <Checkbox
-                            label="Advanced Research?"
-                            name="advancedResearch"
-                            divclass={skillPointCheckbox}
-                        />
-                        <Checkbox
-                            label="Field Research?"
-                            name="fieldResearch"
-                            divclass={skillPointCheckbox}
-                        />
-                        <Checkbox
-                            label="Applied Sciences?"
-                            name="appliedSciences"
-                            divclass={skillPointCheckbox}
-                        />
-                        <Checkbox
-                            label="Astronomy?"
-                            name="astronomy"
-                            divclass={skillPointCheckbox}
-                        />
-                        <Checkbox
-                            label="Data Analysis?"
-                            name="dataAnalysis"
-                            divclass={skillPointCheckbox}
-                        />
+                        <div className="checkboxes-wrapper">
+                            <Checkbox
+                                label="Advanced Research?"
+                                name="advancedResearch"
+                                divclass={skillPointCheckbox}
+                            />
+                            <Checkbox
+                                label="Field Research?"
+                                name="fieldResearch"
+                                divclass={skillPointCheckbox}
+                            />
+                            <Checkbox
+                                label="Applied Sciences?"
+                                name="appliedSciences"
+                                divclass={skillPointCheckbox}
+                            />
+                            <Checkbox
+                                label="Astronomy?"
+                                name="astronomy"
+                                divclass={skillPointCheckbox}
+                            />
+                            <Checkbox
+                                label="Data Analysis?"
+                                name="dataAnalysis"
+                                divclass={skillPointCheckbox}
+                            />
+                        </div>
                     </div>
                     <div className="input-group-wrapper">
                         <NumberInput label="Strength" name="strength" divclass={skillWrapperName} />

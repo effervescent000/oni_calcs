@@ -1,0 +1,32 @@
+.modal-dialog {
+    max-width: 45vw;
+}
+.dupe-form-wrapper {
+    form {
+        .input-group-wrapper {
+            display: flex;
+            .input-wrapper {
+                display: flex;
+                gap: 1em;
+                width: 90%;
+                input {
+                    width: 100%;
+                }
+            }
+            .skill-input-wrapper {
+                width: 25%;
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                input {
+                    width: 5em;
+                    height: 30px;
+                }
+            }
+            .checkboxes-wrapper {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 0 1em;
+            }
+        }
+    }
+}
