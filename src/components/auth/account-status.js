@@ -1,4 +1,6 @@
 import React, { useContext, useState } from "react";
+import axios from "axios";
+import Cookies from "js-cookie";
 import { UserContext } from "../../context/user-context";
 
 import SignupModal from "./signup-modal";
@@ -6,7 +8,7 @@ import LoginModal from "./login-modal";
 import ProfilesModal from "./profiles-modal";
 
 const AccountStatus = (props) => {
-    const { loggedIn, user } = useContext(UserContext);
+    const { loggedIn, user, toggleLogIn, setUser } = useContext(UserContext);
     const [signupModal, setSignupModal] = useState(false);
     const [loginModal, setLoginModal] = useState(false);
     const [profilesModal, setProfilesModal] = useState(false);
@@ -23,6 +25,19 @@ const AccountStatus = (props) => {
         setProfilesModal(!profilesModal);
     };
 
+    const handleLogout = () => {
+        axios
+            .delete(`${process.env.REACT_APP_DOMAIN}/auth/logout`, {
+                withCredentials: true,
+                headers: { "X-CSRF-TOKEN": Cookies.get("csrf_access_token") },
+            })
+            .then((response) => {
+                toggleLogIn();
+                setUser({});
+            })
+            .catch((error) => console.log(error.response));
+    };
+
     const renderContent = () => {
         if (loggedIn) {
             return (
@@ -32,7 +47,9 @@ const AccountStatus = (props) => {
                         Manage profiles
                     </button>
                     <ProfilesModal isOpen={profilesModal} toggle={toggleProfilesModal} />
-                    <button className="link-button">Logout</button>
+                    <button className="link-button" onClick={handleLogout}>
+                        Logout
+                    </button>
                 </div>
             );
         } else {

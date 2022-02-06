@@ -33,7 +33,7 @@ const LoginModal = (props) => {
                     <Form>
                         <TextInput label="Username" name="username" />
                         <PasswordInput label="Password" name="password" />
-                        <button type="submit">Sign up</button>
+                        <button type="submit">Login</button>
                     </Form>
                 </Formik>
             </ModalBody>
