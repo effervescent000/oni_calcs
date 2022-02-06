@@ -56,7 +56,7 @@ const WorldPanel = (props) => {
             <Droppable droppableId={`${props.world.id}`}>
                 {(provided) => (
                     <ul
-                        className="dupes-wrapper"
+                        className="dupes-drop-wrapper"
                         {...provided.droppableProps}
                         ref={provided.innerRef}
                     >
@@ -67,7 +67,7 @@ const WorldPanel = (props) => {
                             onChange={handleChange}
                             onBlur={handleBlur}
                         />
-                        <div className="list-items">
+                        <div className="dupes-wrapper">
                             {renderDupes()}
                             {provided.placeholder}
                         </div>

@@ -36,12 +36,12 @@ const PlannerFrame = (props) => {
             <Droppable droppableId="0">
                 {(provided) => (
                     <ul
-                        className="dupes-wrapper"
+                        className="unassigned-dupes dupes-drop-wrapper"
                         {...provided.droppableProps}
                         ref={provided.innerRef}
                     >
                         <span>Unassigned dupes</span>
-                        <div className="list-items">
+                        <div className="dupes-wrapper">
                             {populateUnassignedDupes()}
                             {provided.placeholder}
                         </div>

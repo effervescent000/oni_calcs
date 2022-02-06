@@ -2,54 +2,54 @@
     .planner-frame {
         display: flex;
         flex-direction: column;
-        .dupes-wrapper {
-            list-style-type: none;
-            .list-items {
+        .unassigned-dupes {
+            min-height: 3em;
+            .dupes-wrapper {
                 display: grid;
                 grid-template-columns: repeat(6, 1fr);
-                justify-items: center;
-                text-align: center;
-                .dupe-card-wrapper {
-                    .dupe-image {
-                        img {
-                            height: 100px;
-                        }
-                    }
-                }
             }
         }
         .worlds-wrapper {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            .dupes-wrapper {
+            gap: 1em;
+            .dupes-drop-wrapper {
                 display: flex;
                 flex-direction: column;
                 input {
                     width: 90%;
                     align-self: center;
                 }
-                list-style-type: none;
-                .list-items {
+                .dupes-wrapper {
                     display: grid;
                     grid-template-columns: repeat(3, 1fr);
-                    .dupe-card-wrapper {
-                        .dupe-image {
-                            img {
-                                height: 100px;
-                            }
-                        }
-                        .text-wrapper {
-                            .buttons {
-                                display: flex;
-                                justify-content: space-between;
-                            }
-                        }
-                    }
                 }
             }
             .world-wrapper {
-                border: red 1px solid;
                 min-height: 50px;
+            }
+        }
+    }
+}
+
+// styles that I want to apply to all instances of dupes wrapper
+.dupes-drop-wrapper {
+    list-style-type: none;
+    .dupes-wrapper {
+        justify-items: center;
+        text-align: center;
+        margin: 1em 0;
+        .dupe-card-wrapper {
+            .text-wrapper {
+                .buttons {
+                    display: flex;
+                    justify-content: space-between;
+                }
+            }
+            .dupe-image {
+                img {
+                    height: 100px;
+                }
             }
         }
     }
