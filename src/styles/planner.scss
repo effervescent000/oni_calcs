@@ -1,0 +1,56 @@
+#planner-wrapper {
+    .planner-frame {
+        display: flex;
+        flex-direction: column;
+        .unassigned-dupes {
+            min-height: 3em;
+            .dupes-wrapper {
+                display: grid;
+                grid-template-columns: repeat(6, 1fr);
+            }
+        }
+        .worlds-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1em;
+            .dupes-drop-wrapper {
+                display: flex;
+                flex-direction: column;
+                input {
+                    width: 90%;
+                    align-self: center;
+                }
+                .dupes-wrapper {
+                    display: grid;
+                    grid-template-columns: repeat(3, 1fr);
+                }
+            }
+            .world-wrapper {
+                min-height: 50px;
+            }
+        }
+    }
+}
+
+// styles that I want to apply to all instances of dupes wrapper
+.dupes-drop-wrapper {
+    list-style-type: none;
+    .dupes-wrapper {
+        justify-items: center;
+        text-align: center;
+        margin: 1em 0;
+        .dupe-card-wrapper {
+            .text-wrapper {
+                .buttons {
+                    display: flex;
+                    justify-content: space-between;
+                }
+            }
+            .dupe-image {
+                img {
+                    height: 100px;
+                }
+            }
+        }
+    }
+}
