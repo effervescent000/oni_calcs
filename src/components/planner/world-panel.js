@@ -4,6 +4,7 @@ import Cookies from "js-cookie";
 import { Droppable, Draggable } from "react-beautiful-dnd";
 
 import DupeCard from "./dupe-card";
+import WorldStats from "./world-stats";
 
 const WorldPanel = (props) => {
     const [worldName, setworldName] = useState(props.world.name);
@@ -67,6 +68,7 @@ const WorldPanel = (props) => {
                             onChange={handleChange}
                             onBlur={handleBlur}
                         />
+                        <WorldStats dupes={dupes} />
                         <div className="dupes-wrapper">
                             {renderDupes()}
                             {provided.placeholder}
