@@ -2,14 +2,26 @@ import React from "react";
 
 const WorldStats = (props) => {
     const stats = {
-        cooks: props.dupes.filter((dupe) => dupe.grilling).length,
-        fieldResearchers: props.dupes.filter((dupe) => dupe.field_research).length,
+        cooks: props.dupes.filter((dupe) => dupe.Cooking1).length,
+        farmers: props.dupes.filter((dupe) => dupe.Farming2).length,
+        ranchers: props.dupes.filter((dupe) => dupe.Ranching1).length,
+        fieldResearchers: props.dupes.filter((dupe) => dupe.Researching2).length,
         fullResearchers: props.dupes.filter((dupe) => dupe.data_analysis && dupe.applied_sciences)
             .length,
     };
 
     return (
         <div className="stats-wrapper">
+            <div className="skill-wrapper">
+                <div className="stat-wrapper">
+                    <span className="label">Farmers</span>
+                    <span className="value">{stats.farmers}</span>
+                </div>
+                <div className="stat-wrapper">
+                    <span className="label">Ranchers</span>
+                    <span className="value">{stats.ranchers}</span>
+                </div>
+            </div>
             <div className="skill-wrapper">
                 <div className="stat-wrapper">
                     <span className="label">Cooks</span>

@@ -8,7 +8,7 @@ import WorldStats from "./world-stats";
 
 const WorldPanel = (props) => {
     const [worldName, setworldName] = useState(props.world.name);
-    const dupes = props.dupes.filter((dupe) => dupe.world_id === props.world.id);
+    const dupes = props.dupes.filter((dupe) => dupe.world === props.world.id);
 
     const handleChange = (event) => {
         if (event.target.name === "world-name-input") {
@@ -16,23 +16,23 @@ const WorldPanel = (props) => {
         }
     };
 
-    const handleBlur = (event) => {
-        if (event.target.name === "world-name-input") {
-            axios
-                .put(
-                    `${process.env.REACT_APP_DOMAIN}/world/update`,
-                    { id: props.world.id, name: event.target.value },
-                    {
-                        withCredentials: true,
-                        headers: { "X-CSRF-TOKEN": Cookies.get("csrf_access_token") },
-                    }
-                )
-                .then((response) => {
-                    console.log(response);
-                })
-                .catch((error) => console.log(error.response));
-        }
-    };
+    // const handleBlur = (event) => {
+    //     if (event.target.name === "world-name-input") {
+    //         axios
+    //             .put(
+    //                 `${process.env.REACT_APP_DOMAIN}/world/update`,
+    //                 { id: props.world.id, name: event.target.value },
+    //                 {
+    //                     withCredentials: true,
+    //                     headers: { "X-CSRF-TOKEN": Cookies.get("csrf_access_token") },
+    //                 }
+    //             )
+    //             .then((response) => {
+    //                 console.log(response);
+    //             })
+    //             .catch((error) => console.log(error.response));
+    //     }
+    // };
 
     const renderDupes = () => {
         return dupes.map((dupe, index) => {
@@ -66,7 +66,7 @@ const WorldPanel = (props) => {
                             value={worldName}
                             name="world-name-input"
                             onChange={handleChange}
-                            onBlur={handleBlur}
+                            // onBlur={handleBlur}
                         />
                         <WorldStats dupes={dupes} />
                         <div className="dupes-wrapper">

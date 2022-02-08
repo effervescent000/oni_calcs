@@ -5,7 +5,7 @@ import WorldPanel from "./world-panel";
 import DupeCard from "./dupe-card";
 
 const PlannerFrame = (props) => {
-    const unassignedDupes = props.dupes.filter((dupe) => dupe.world_id === null);
+    const unassignedDupes = props.dupes.filter((dupe) => dupe.world === 0);
 
     const populateUnassignedDupes = () => {
         return unassignedDupes.map((dupe, index) => {
@@ -27,7 +27,7 @@ const PlannerFrame = (props) => {
 
     const populateWorlds = () => {
         return props.worlds.map((world) => {
-            return <WorldPanel world={world} dupes={props.dupes} />;
+            return <WorldPanel key={world.id} world={world} dupes={props.dupes} />;
         });
     };
 
