@@ -83,7 +83,6 @@ const PlannerPage = (props) => {
         //         getDupes();
         //     })
         //     .catch((error) => console.log(error.response));
-        console.log(result);
         let dupesCopy = [...dupes];
         for (const dupe of dupesCopy) {
             if (parseInt(result.draggableId) === dupe.id) {

@@ -1,4 +1,5 @@
 #planner-wrapper {
+    position: relative;
     .planner-frame {
         display: flex;
         flex-direction: column;
@@ -48,6 +49,24 @@
                     }
                 }
             }
+        }
+    }
+    .upload-wrapper {
+        position: fixed;
+        left: 10%;
+        background-color: $blue-gray;
+        color: $dark-gray;
+        display: grid;
+        grid-template-rows: repeat(3, 1fr);
+        justify-items: center;
+        padding: 2em;
+        border: 2px $dark-gray dashed;
+        width: 15em;
+        border-radius: 1em;
+        input {
+            background-color: transparent;
+            color: transparent;
+            border: none;
         }
     }
 }

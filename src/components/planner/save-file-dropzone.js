@@ -75,7 +75,8 @@ const SaveFileDropzone = (props) => {
     return (
         <div className="upload-wrapper" {...getRootProps({ style })}>
             <input type="button" {...getInputProps} />
-            Drop a save file here
+            {processingData ? <span>Processing...</span> : <span>Drop a save file here</span>}
+            <div />
         </div>
     );
 };

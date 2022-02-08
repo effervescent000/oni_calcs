@@ -3,6 +3,7 @@ import React from "react";
 const WorldStats = (props) => {
     const stats = {
         cooks: props.dupes.filter((dupe) => dupe.Cooking1).length,
+        builders: props.dupes.filter((dupe) => dupe.construction > 15).length,
         farmers: props.dupes.filter((dupe) => dupe.Farming2).length,
         ranchers: props.dupes.filter((dupe) => dupe.Ranching1).length,
         fieldResearchers: props.dupes.filter((dupe) => dupe.Researching2).length,
