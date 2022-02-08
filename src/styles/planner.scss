@@ -1,5 +1,13 @@
 #planner-wrapper {
     position: relative;
+    .interaction-wrapper {
+        display: flex;
+        gap: 1em;
+        button {
+            @include button-styling;
+        }
+    }
+
     .planner-frame {
         display: flex;
         flex-direction: column;
