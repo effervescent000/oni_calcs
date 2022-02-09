@@ -18,9 +18,8 @@ const SaveFileDropzone = (props) => {
         const reader = new FileReader();
         reader.onload = () => {
             const saveData = loadFile(reader.result);
-            // console.log(saveData);
+            console.log(saveData);
             let dupes = findDupes(saveData);
-            // console.log(dupes);
             props.setDupes(buildDupes(dupes.gameObjects));
 
             setProcessingData(false);

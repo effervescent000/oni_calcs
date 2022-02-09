@@ -104,7 +104,7 @@ const PlannerPage = (props) => {
                 }}
             >
                 <div id="planner-wrapper">
-                    <SaveFileDropzone setDupes={setDupes} />
+                    <SaveFileDropzone setDupes={setDupes} setWorlds={setWorlds} />
                     <div className="interaction-wrapper">
                         <button onClick={toggleDupeModal}>New dupe</button>
                         <DupeModal

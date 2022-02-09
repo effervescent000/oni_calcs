@@ -25,3 +25,17 @@
         background-color: $medium-gray;
     }
 }
+
+@mixin input-styling {
+    background-color: $dark-gray;
+    color: $off-white;
+    border: 1px solid $periwinkle;
+    border-radius: 5px;
+    padding: 0.3em;
+    transition: 0.25s ease-in-out;
+    &:focus {
+        outline: none;
+        background-color: $off-white;
+        color: $dark-gray;
+    }
+}

@@ -22,9 +22,7 @@ const Header = (props) => {
                     </Nav>
                 </Navbar>
             </div>
-            <div className="right-side">
-                <AccountStatus />
-            </div>
+            <div className="right-side">{/* <AccountStatus /> */}</div>
         </div>
     );
 };

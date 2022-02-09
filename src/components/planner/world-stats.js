@@ -31,6 +31,12 @@ const WorldStats = (props) => {
             </div>
             <div className="skill-wrapper">
                 <div className="stat-wrapper">
+                    <span className="label">Builders</span>
+                    <span className="value">{stats.builders}</span>
+                </div>
+            </div>
+            <div className="skill-wrapper">
+                <div className="stat-wrapper">
                     <span className="label">Field Researchers</span>
                     <span className="value">{stats.fieldResearchers}</span>
                 </div>
