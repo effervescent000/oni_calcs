@@ -21,11 +21,27 @@ const SaveFileDropzone = (props) => {
             console.log(saveData);
             let dupes = findDupes(saveData);
             props.setDupes(buildDupes(dupes.gameObjects));
-
+            let worlds = findWorlds(saveData);
+            props.setWorlds(buildWorlds(worlds.gameObjects));
             setProcessingData(false);
         };
         reader.readAsArrayBuffer(acceptedFiles[0]);
     }, []);
+
+    const buildWorlds = (worldsRaw) => {
+        let worlds = [];
+        for (const worldData of worldsRaw) {
+            if (worldData.behaviors[2].templateData.isDiscovered) {
+                worlds.push({
+                    id: worlds.length + 1,
+                    name: worldData.behaviors[3].templateData.m_name,
+                    type: worldData.behaviors[2].templateData.worldName.split("/")[1],
+                    // the point of having this twice is that a user can edit the name, but the type can be used to pull in a picture of the asteroid
+                });
+            }
+        }
+        return worlds;
+    };
 
     const buildDupes = (dupesRaw) => {
         let dupes = [];
@@ -58,6 +74,14 @@ const SaveFileDropzone = (props) => {
             dupes.push(dupe);
         }
         return dupes;
+    };
+
+    const findWorlds = (saveData) => {
+        for (const gameObject of saveData.gameObjects) {
+            if (gameObject.name === "Asteroid") {
+                return gameObject;
+            }
+        }
     };
 
     const findDupes = (saveData) => {

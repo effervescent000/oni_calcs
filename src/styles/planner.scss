@@ -22,24 +22,31 @@
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 1em;
-            .dupes-drop-wrapper {
-                display: flex;
-                flex-direction: column;
-                input {
-                    @include input-styling;
-                    width: 90%;
-                    align-self: center;
-                }
-                .dupes-wrapper {
-                    display: grid;
-                    grid-template-columns: repeat(3, 1fr);
-                    gap: 1em 0;
-                }
-            }
             .world-wrapper {
                 min-height: 50px;
                 display: flex;
                 flex-direction: column;
+                .dupes-drop-wrapper {
+                    display: flex;
+                    flex-direction: column;
+                    .world-img-wrapper {
+                        align-self: center;
+                        padding: 1em;
+                        img {
+                            height: 10em;
+                        }
+                    }
+                    input {
+                        @include input-styling;
+                        width: 90%;
+                        align-self: center;
+                    }
+                    .dupes-wrapper {
+                        display: grid;
+                        grid-template-columns: repeat(3, 1fr);
+                        gap: 1em 0;
+                    }
+                }
                 .stats-wrapper {
                     align-self: center;
                     width: 90%;

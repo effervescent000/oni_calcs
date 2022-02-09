@@ -61,6 +61,13 @@ const WorldPanel = (props) => {
                         {...provided.droppableProps}
                         ref={provided.innerRef}
                     >
+                        <div className="world-img-wrapper">
+                            <img
+                                src={`${process.env.PUBLIC_URL}/images/worlds/${props.world.type}.webp`}
+                                alt={props.world.type}
+                            />
+                        </div>
+
                         <input
                             type="text"
                             value={worldName}
