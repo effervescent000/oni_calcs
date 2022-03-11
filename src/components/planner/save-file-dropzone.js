@@ -1,5 +1,4 @@
-import React, { useState, useCallback, useEffect } from "react";
-import axios from "axios";
+import React, { useState, useCallback } from "react";
 import { useDropzone } from "react-dropzone";
 
 const SaveFileDropzone = (props) => {
@@ -36,7 +35,6 @@ const SaveFileDropzone = (props) => {
                     id: worlds.length + 1,
                     name: worldData.behaviors[3].templateData.m_name,
                     type: worldData.behaviors[2].templateData.worldName.split("/")[1],
-                    // the point of having this twice is that a user can edit the name, but the type can be used to pull in a picture of the asteroid
                 });
             }
         }
@@ -92,14 +90,116 @@ const SaveFileDropzone = (props) => {
         }
     };
 
-    const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop });
+    const { getRootProps, getInputProps, isDragActive } = useDropzone({
+        onDrop,
+    });
     const style = { alignItems: "center" };
 
+    const loadSampleData = () => {
+        props.setDupes([
+            {
+                id: 0,
+                name: "Meep",
+                type: "Meep",
+                world: 0,
+                agriculture: 0,
+                athletics: 6,
+                construction: 9,
+                creativity: 0,
+                cuisine: 1,
+                excavation: 3,
+                husbandry: 0,
+                machinery: 0,
+                medicine: 0,
+                piloting: 0,
+                rocketry: 0,
+                science: 0,
+                strength: 0,
+                availableSkillPoints: "",
+                Mining1: true,
+                Mining2: true,
+                Mining3: true,
+                RocketPiloting1: true,
+                Hauling1: true,
+                ThermalSuits: true,
+                Suits1: true,
+            },
+            {
+                id: 1,
+                name: "Devon",
+                type: "Devon",
+                world: 0,
+                agriculture: 2,
+                athletics: 10,
+                construction: 2,
+                creativity: 0,
+                cuisine: 7,
+                excavation: 1,
+                husbandry: 0,
+                machinery: 4,
+                medicine: 0,
+                piloting: 0,
+                rocketry: 0,
+                science: 12,
+                strength: 2,
+                availableSkillPoints: "",
+                Researching1: true,
+                Researching2: true,
+                RocketPiloting1: true,
+                Astronomy: true,
+                Hauling1: true,
+                Cooking1: true,
+            },
+            {
+                id: 2,
+                name: "Mae",
+                type: "Mae",
+                world: 0,
+                agriculture: 8,
+                athletics: 7,
+                construction: 1,
+                creativity: 0,
+                cuisine: 0,
+                excavation: 1,
+                husbandry: 0,
+                machinery: 3,
+                medicine: 0,
+                piloting: 0,
+                rocketry: 0,
+                science: 0,
+                strength: 2,
+                availableSkillPoints: "",
+                Farming1: true,
+                Ranching1: true,
+                Farming2: true,
+                RocketPiloting1: true,
+                Hauling1: true,
+                ThermalSuits: true,
+                Suits1: true,
+            },
+        ]);
+        props.setWorlds([
+            {
+                id: 1,
+                name: "Sylvani",
+                type: "ForestMoonlet",
+            },
+            {
+                id: 2,
+                name: "Exquisini",
+                type: "OilRichWarpTarget",
+            },
+        ]);
+    };
+
     return (
-        <div className="upload-wrapper" {...getRootProps({ style })}>
-            <input type="button" {...getInputProps} />
-            {processingData ? <span>Processing...</span> : <span>Drop a save file here</span>}
-            <div />
+        <div className="save-data-wrapper">
+            <div className="upload-wrapper" {...getRootProps({ style })}>
+                <input type="button" {...getInputProps} />
+                {processingData ? <span>Processing...</span> : <span>Drop a save file here</span>}
+                <div />
+            </div>
+            <button onClick={loadSampleData}>Use example data</button>
         </div>
     );
 };

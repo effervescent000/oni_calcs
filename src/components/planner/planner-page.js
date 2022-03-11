@@ -7,6 +7,7 @@ import { isEqual } from "lodash";
 import PlannerFrame from "./planner-frame";
 import DupeModal from "./dupe-modal";
 import DupeContext from "../../context/dupe-context";
+import HelpPanel from "./help-panel";
 import SaveFileDropzone from "./save-file-dropzone";
 
 const PlannerPage = (props) => {
@@ -14,6 +15,11 @@ const PlannerPage = (props) => {
     const [dupes, setDupes] = useState([]);
     const [dupeModalIsOpen, setDupeModalIsOpen] = useState(false);
     const [worlds, setWorlds] = useState([]);
+
+    useEffect(() => {
+        console.log("dupes", dupes);
+        console.log("worlds", worlds);
+    }, [worlds]);
 
     const getDupes = () => {
         axios
@@ -59,10 +65,7 @@ const PlannerPage = (props) => {
                 }}
             >
                 <div id="planner-wrapper">
-                    <SaveFileDropzone
-                        setDupes={setDupes}
-                        setWorlds={setWorlds}
-                    />
+                    <SaveFileDropzone setDupes={setDupes} setWorlds={setWorlds} />
                     <div className="interaction-wrapper">
                         <button onClick={toggleDupeModal}>New dupe</button>
                         <DupeModal
@@ -74,6 +77,7 @@ const PlannerPage = (props) => {
                     </div>
 
                     <PlannerFrame dupes={dupes} worlds={worlds} />
+                    <HelpPanel />
                 </div>
             </DupeContext.Provider>
         </DragDropContext>
