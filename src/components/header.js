@@ -8,16 +8,16 @@ const Header = (props) => {
         <div id="header">
             <div className="left-side">
                 <Navbar>
-                    <NavbarBrand href="/">ONI Calcs</NavbarBrand>
+                    <NavbarBrand href="/">ONI Planner</NavbarBrand>
                     <Nav>
+                        <NavItem>
+                            <NavLink href="/">Planner</NavLink>
+                        </NavItem>
                         <NavItem>
                             <NavLink href="/calcs/oxygen">Oxygen</NavLink>
                         </NavItem>
                         <NavItem>
                             <NavLink href="/calcs/food">Food</NavLink>
-                        </NavItem>
-                        <NavItem>
-                            <NavLink href="/planner">Planner</NavLink>
                         </NavItem>
                     </Nav>
                 </Navbar>

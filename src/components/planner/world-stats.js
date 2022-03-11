@@ -4,6 +4,7 @@ const WorldStats = (props) => {
     const stats = {
         cooks: props.dupes.filter((dupe) => dupe.Cooking1).length,
         builders: props.dupes.filter((dupe) => dupe.construction > 15).length,
+        diggers: props.dupes.filter((dupe) => dupe.Mining3).length,
         farmers: props.dupes.filter((dupe) => dupe.Farming2).length,
         ranchers: props.dupes.filter((dupe) => dupe.Ranching1).length,
         fieldResearchers: props.dupes.filter((dupe) => dupe.Researching2).length,
@@ -33,6 +34,10 @@ const WorldStats = (props) => {
                 <div className="stat-wrapper">
                     <span className="label">Builders</span>
                     <span className="value">{stats.builders}</span>
+                </div>
+                <div className="stat-wrapper">
+                    <span className="label">Diggers</span>
+                    <span className="value">{stats.diggers}</span>
                 </div>
             </div>
             <div className="skill-wrapper">

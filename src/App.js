@@ -19,24 +19,6 @@ function App() {
     const [profile, setProfile] = useState({});
     const [user, setUser] = useState({});
 
-    // useEffect(() => {
-    //     if (!loggedIn) {
-    //         axios
-    //             .get(`${process.env.REACT_APP_DOMAIN}/auth/check`, {
-    //                 withCredentials: true,
-    //                 headers: { "X-CSRF-TOKEN": Cookies.get("csrf_access_token") },
-    //             })
-    //             .then((response) => {
-    //                 // console.log(response);
-    //                 if (Object.keys(response.data).length > 0) {
-    //                     toggleLogIn();
-    //                     setUser(response.data);
-    //                 }
-    //             })
-    //             .catch((error) => console.log(error.response));
-    //     }
-    // });
-
     const toggleLogIn = () => {
         if (loggedIn) {
             setLoggedIn(false);
@@ -48,7 +30,14 @@ function App() {
     return (
         <Router>
             <UserContext.Provider
-                value={{ loggedIn, toggleLogIn, profile, setProfile, user, setUser }}
+                value={{
+                    loggedIn,
+                    toggleLogIn,
+                    profile,
+                    setProfile,
+                    user,
+                    setUser,
+                }}
             >
                 <div id="app">
                     <Header />
@@ -56,16 +45,13 @@ function App() {
                         <div className="content-wrapper">
                             <Switch>
                                 <Route exact path="/">
-                                    <MainPage />
+                                    <PlannerPage />
                                 </Route>
                                 <Route path="/calcs/oxygen">
                                     <OxyCalc />
                                 </Route>
                                 <Route path="/calcs/food">
                                     <FoodCalcPage />
-                                </Route>
-                                <Route path="/planner">
-                                    <PlannerPage />
                                 </Route>
                             </Switch>
                         </div>
