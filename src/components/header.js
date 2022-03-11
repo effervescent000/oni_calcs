@@ -1,8 +1,6 @@
 import React from "react";
 import { Nav, Navbar, NavbarBrand, NavItem, NavLink } from "reactstrap";
 
-import AccountStatus from "./auth/account-status";
-
 const Header = (props) => {
     return (
         <div id="header">

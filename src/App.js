@@ -1,14 +1,10 @@
-// import logo from "./logo.svg";
 import "bootstrap/scss/bootstrap.scss";
 import "./styles/main.scss";
 
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import axios from "axios";
-import Cookies from "js-cookie";
 
 import Header from "./components/header";
-import MainPage from "./components/main-page";
 import OxyCalc from "./components/oxy-calc";
 import FoodCalcPage from "./components/food-calc/food-calc-page";
 import PlannerPage from "./components/planner/planner-page";
