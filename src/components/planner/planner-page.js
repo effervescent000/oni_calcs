@@ -15,11 +15,6 @@ const PlannerPage = (props) => {
     const [dupeModalIsOpen, setDupeModalIsOpen] = useState(false);
     const [worlds, setWorlds] = useState([]);
 
-    // useEffect(() => {
-    // getWorlds();
-    // getDupes();
-    // });
-
     const getDupes = () => {
         axios
             .get(`${process.env.REACT_APP_DOMAIN}/dupe/get`, {
@@ -39,51 +34,11 @@ const PlannerPage = (props) => {
     };
 
     const addWorld = () => {
-        // axios
-        //     .post(
-        //         `${process.env.REACT_APP_DOMAIN}/world/add`,
-        //         {},
-        //         {
-        //             withCredentials: true,
-        //             headers: { "X-CSRF-TOKEN": Cookies.get("csrf_access_token") },
-        //         }
-        //     )
-        //     .then((response) => {
-        //         getWorlds();
-        //     })
-        //     .catch((error) => console.log(error.response));
         setWorlds([...worlds, { name: "", id: worlds.length + 1 }]);
     };
 
-    // const getWorlds = () => {
-    //     axios
-    //         .get(`${process.env.REACT_APP_DOMAIN}/world/get`, {
-    //             withCredentials: true,
-    //             headers: { "X-CSRF-TOKEN": Cookies.get("csrf_access_token") },
-    //         })
-    //         .then((response) => {
-    //             if (!isEqual(response.data, worlds)) {
-    //                 setWorlds(response.data);
-    //             }
-    //         })
-    //         .catch((error) => console.log(error.response));
-    // };
-
     const handleOnDragEnd = (result) => {
-        // const data = {
-        //     dupeId: result.draggableId,
-        //     destinationId: result.destination.droppableId,
-        // };
-        // axios
-        //     .put(`${process.env.REACT_APP_DOMAIN}/dupe/world`, data, {
-        //         withCredentials: true,
-        //         headers: { "X-CSRF-TOKEN": Cookies.get("csrf_access_token") },
-        //     })
-        //     .then((response) => {
-        //         getDupes();
-        //     })
-        //     .catch((error) => console.log(error.response));
-        let dupesCopy = [...dupes];
+        const dupesCopy = [...dupes];
         for (const dupe of dupesCopy) {
             if (parseInt(result.draggableId) === dupe.id) {
                 dupe.world = parseInt(result.destination.droppableId);
@@ -104,7 +59,10 @@ const PlannerPage = (props) => {
                 }}
             >
                 <div id="planner-wrapper">
-                    <SaveFileDropzone setDupes={setDupes} setWorlds={setWorlds} />
+                    <SaveFileDropzone
+                        setDupes={setDupes}
+                        setWorlds={setWorlds}
+                    />
                     <div className="interaction-wrapper">
                         <button onClick={toggleDupeModal}>New dupe</button>
                         <DupeModal
