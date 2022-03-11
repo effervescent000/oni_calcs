@@ -93,6 +93,25 @@
             @include button-styling();
         }
     }
+    .help-panel-wrapper {
+        position: absolute;
+        width: 20vw;
+        right: -50%;
+        top: 2em;
+        .header-wrapper {
+            display: flex;
+            justify-content: space-between;
+            .controls-wrapper {
+                display: flex;
+                gap: 0.5em;
+                button {
+                    background-color: transparent;
+                    border: none;
+                    color: $periwinkle;
+                }
+            }
+        }
+    }
 }
 
 // styles that I want to apply to all instances of dupes wrapper
