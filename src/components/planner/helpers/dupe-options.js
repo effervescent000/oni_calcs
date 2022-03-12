@@ -12,7 +12,7 @@ const dupeOptions = () => {
         "Devon",
         "Ellie",
         "Frankie",
-        "Gossman",
+        "Gossmann",
         "Harold",
         "Hassan",
         "Jean",

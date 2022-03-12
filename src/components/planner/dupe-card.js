@@ -30,7 +30,7 @@ const DupeCard = (props) => {
         <div className="dupe-card-wrapper">
             <div className="dupe-image">
                 <img
-                    src={`${process.env.PUBLIC_URL}/images/dupes/ONI_${props.dupe.type}.jpg`}
+                    src={`${process.env.PUBLIC_URL}/images/dupes/ONI_${props.dupe.type}.webp`}
                     alt={props.dupe.type}
                 />
             </div>

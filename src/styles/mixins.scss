@@ -8,3 +8,34 @@
         text-decoration: underline 0.05em rgba($color: $primary-text-color, $alpha: 1);
     }
 }
+
+@mixin button-styling {
+    color: $dark-gray;
+    background-color: $blue-gray;
+    -webkit-box-shadow: inset 0px 0px 7px 4px rgba(0, 0, 0, 0.25);
+    box-shadow: inset 0px 0px 7px 4px rgba(0, 0, 0, 0.25);
+    border: none;
+    border-radius: 5px;
+    padding: 0.3em 0.5em;
+    transition: 0.5s ease-in-out;
+    @content;
+
+    &:active {
+        color: $black;
+        background-color: $medium-gray;
+    }
+}
+
+@mixin input-styling {
+    background-color: $dark-gray;
+    color: $off-white;
+    border: 1px solid $periwinkle;
+    border-radius: 5px;
+    padding: 0.3em;
+    transition: 0.25s ease-in-out;
+    &:focus {
+        outline: none;
+        background-color: $off-white;
+        color: $dark-gray;
+    }
+}
