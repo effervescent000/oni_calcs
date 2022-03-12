@@ -16,11 +16,6 @@ const PlannerPage = (props) => {
     const [dupeModalIsOpen, setDupeModalIsOpen] = useState(false);
     const [worlds, setWorlds] = useState([]);
 
-    useEffect(() => {
-        console.log("dupes", dupes);
-        console.log("worlds", worlds);
-    }, [worlds]);
-
     const getDupes = () => {
         axios
             .get(`${process.env.REACT_APP_DOMAIN}/dupe/get`, {
