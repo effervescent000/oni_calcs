@@ -11,12 +11,12 @@ const Header = (props) => {
                         <NavItem>
                             <NavLink href="/">Planner</NavLink>
                         </NavItem>
-                        <NavItem>
+                        {/* <NavItem>
                             <NavLink href="/calcs/oxygen">Oxygen</NavLink>
                         </NavItem>
                         <NavItem>
                             <NavLink href="/calcs/food">Food</NavLink>
-                        </NavItem>
+                        </NavItem> */}
                     </Nav>
                 </Navbar>
             </div>
