@@ -1,9 +1,5 @@
 import React from "react";
-import axios from "axios";
-import Cookies from "js-cookie";
-import { Formik, Form } from "formik";
 import { Modal, ModalBody } from "reactstrap";
-import * as Yup from "yup";
 
 import DupeForm from "./dupe-form";
 

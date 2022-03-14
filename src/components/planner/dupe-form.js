@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import axios from "axios";
 import Cookies from "js-cookie";
-import { Formik, Form, FieldArray } from "formik";
+import { Formik, Form } from "formik";
 import * as Yup from "yup";
 
 import NumberInput from "../form-components/number-input";
