@@ -90,11 +90,6 @@ const SaveFileDropzone = (props) => {
         }
     };
 
-    const { getRootProps, getInputProps, isDragActive } = useDropzone({
-        onDrop,
-    });
-    const style = { alignItems: "center" };
-
     const loadSampleData = () => {
         props.setDupes([
             {
@@ -191,6 +186,11 @@ const SaveFileDropzone = (props) => {
             },
         ]);
     };
+
+    const { getRootProps, getInputProps } = useDropzone({
+        onDrop,
+    });
+    const style = { alignItems: "center" };
 
     return (
         <div className="save-data-wrapper">

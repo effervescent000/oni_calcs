@@ -11,6 +11,7 @@ const DupeCard = (props) => {
 
     const editDupe = () => {
         setDupeToEdit(props.dupe);
+        console.log(props.dupe);
         toggleDupeModal();
     };
 

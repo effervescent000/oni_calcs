@@ -12,8 +12,7 @@ import SelectField from "../form-components/select-field";
 import dupeOptions from "./helpers/dupe-options";
 import DupeContext from "../../context/dupe-context";
 
-const DupeForm = (props) => {
-    const { dupe } = props;
+const DupeForm = ({ dupe }) => {
     const { getDupes } = useContext(DupeContext);
     const skillWrapperName = "skill-input-wrapper";
     const skillPointCheckbox = "skill-checkbox";
@@ -53,29 +52,29 @@ const DupeForm = (props) => {
                 initialValues={{
                     name: dupe ? dupe.name : "",
                     type: dupe ? dupe.type : "Abe",
-                    agriculture: dupe ? dupe.agriculture_skill : "",
-                    athletics: dupe ? dupe.athletics_skill : "",
-                    construction: dupe ? dupe.construction_skill : "",
-                    creativity: dupe ? dupe.creativity_skill : "",
-                    cuisine: dupe ? dupe.cuisine_skill : "",
-                    excavation: dupe ? dupe.excavation_skill : "",
-                    husbandry: dupe ? dupe.husbandry_skill : "",
-                    machinery: dupe ? dupe.machinery_skill : "",
-                    medicine: dupe ? dupe.medicine_skill : "",
-                    piloting: dupe ? dupe.piloting_skill : "",
-                    rocketry: dupe ? dupe.rocketry_skill : "",
-                    science: dupe ? dupe.science_skill : "",
-                    strength: dupe ? dupe.strength_skill : "",
+                    agriculture: dupe ? dupe.agriculture : "",
+                    athletics: dupe ? dupe.athletics : "",
+                    construction: dupe ? dupe.construction : "",
+                    creativity: dupe ? dupe.creativity : "",
+                    cuisine: dupe ? dupe.cuisine : "",
+                    excavation: dupe ? dupe.excavation : "",
+                    husbandry: dupe ? dupe.husbandry : "",
+                    machinery: dupe ? dupe.machinery : "",
+                    medicine: dupe ? dupe.medicine : "",
+                    piloting: dupe ? dupe.piloting : "",
+                    rocketry: dupe ? dupe.rocketry : "",
+                    science: dupe ? dupe.science : "",
+                    strength: dupe ? dupe.strength : "",
 
-                    cropTending: dupe ? dupe.crop_tending : false,
-                    critterRanching: dupe ? dupe.critter_ranching : false,
-                    grilling: dupe ? dupe.grilling : false,
-                    advancedResearch: dupe ? dupe.advanced_research : false,
-                    fieldResearch: dupe ? dupe.field_research : false,
-                    astronomy: dupe ? dupe.astronomy : false,
-                    dataAnalysis: dupe ? dupe.data_analysis : false,
+                    // cropTending: dupe ? dupe.crop_tending : false,
+                    // critterRanching: dupe ? dupe.critter_ranching : false,
+                    // grilling: dupe ? dupe.grilling : false,
+                    // advancedResearch: dupe ? dupe.advanced_research : false,
+                    // fieldResearch: dupe ? dupe.field_research : false,
+                    // astronomy: dupe ? dupe.astronomy : false,
+                    // dataAnalysis: dupe ? dupe.data_analysis : false,
 
-                    skillPoints: dupe ? dupe.available_skill_points : "",
+                    skillPoints: dupe ? dupe.availableSkillPoints : "",
                 }}
                 onSubmit={(values) => handleSubmit(values)}
             >
@@ -94,7 +93,7 @@ const DupeForm = (props) => {
                             name="agriculture"
                             divclass={skillWrapperName}
                         />
-                        <div className="checkboxes-wrapper">
+                        {/* <div className="checkboxes-wrapper">
                             <Checkbox
                                 label="Crop Tending?"
                                 name="cropTending"
@@ -105,7 +104,7 @@ const DupeForm = (props) => {
                                 name="critterRanching"
                                 divclass={skillPointCheckbox}
                             />
-                        </div>
+                        </div> */}
                     </div>
                     <div className="input-group-wrapper">
                         <NumberInput
@@ -131,13 +130,13 @@ const DupeForm = (props) => {
                     </div>
                     <div className="input-group-wrapper">
                         <NumberInput label="Cuisine" name="cuisine" divclass={skillWrapperName} />
-                        <div className="checkboxes-wrapper">
+                        {/* <div className="checkboxes-wrapper">
                             <Checkbox
                                 label="Grilling?"
                                 name="grilling"
                                 divclass={skillPointCheckbox}
                             />
-                        </div>
+                        </div> */}
                     </div>
                     <div className="input-group-wrapper">
                         <NumberInput
@@ -171,7 +170,7 @@ const DupeForm = (props) => {
                     </div>
                     <div className="input-group-wrapper">
                         <NumberInput label="Science" name="science" divclass={skillWrapperName} />
-                        <div className="checkboxes-wrapper">
+                        {/* <div className="checkboxes-wrapper">
                             <Checkbox
                                 label="Advanced Research?"
                                 name="advancedResearch"
@@ -197,7 +196,7 @@ const DupeForm = (props) => {
                                 name="dataAnalysis"
                                 divclass={skillPointCheckbox}
                             />
-                        </div>
+                        </div> */}
                     </div>
                     <div className="input-group-wrapper">
                         <NumberInput label="Strength" name="strength" divclass={skillWrapperName} />
